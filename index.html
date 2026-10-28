@@ -1,278 +1,1332 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Young English Academy - With Gayan Vimukthi</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script>
-tailwind.config={theme:{extend:{colors:{deep:'#283593',acc:'#3F51B5',soft:'#F4F5F7',ink:'#212121',night:'#080C2B'},fontFamily:{sans:['"Plus Jakarta Sans"','sans-serif'],disp:['"Bricolage Grotesque"','sans-serif']}}}}
-</script>
-<style>
-body{font-family:'Plus Jakarta Sans',sans-serif;color:#212121;background:#fff;overflow-x:hidden}
-h1,h2,h3,.disp{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.025em}
-.rv{opacity:0;transform:translateY(40px) scale(.98);filter:blur(6px);transition:all .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
-.rv.in{opacity:1;transform:none;filter:none}
-.w{display:inline-block;opacity:0;transform:translateY(60%) rotate(4deg);animation:wu .8s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*70ms + 200ms)}
-@keyframes wu{to{opacity:1;transform:none}}
-.gt{background:linear-gradient(90deg,#FBC02D,#F57C00,#FF6D9D,#FBC02D);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
-@keyframes sh{to{background-position:250% 0}}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-.fl{animation:fl 6s ease-in-out infinite}.fl2{animation:fl 8s ease-in-out infinite reverse}
-@keyframes mq{to{transform:translateX(-50%)}}.mq{animation:mq 28s linear infinite}
-@keyframes au{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.15)}}
-.au{position:absolute;border-radius:9999px;filter:blur(90px);animation:au 14s ease-in-out infinite}
-.grain::after{content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
-.glass{background:rgba(255,255,255,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.15)}
-.slant{clip-path:polygon(0 16%,100% 0,100% 84%,0 100%)}
-.spot{position:relative;overflow:hidden;transition:transform .4s,box-shadow .4s}
-.spot::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .3s;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(63,81,181,.22),transparent 60%)}
-.spot:hover::before{opacity:1}.spot:hover{transform:translateY(-8px);box-shadow:0 30px 50px -20px rgba(40,53,147,.45)}
-.spot>*{position:relative}
-.nl{opacity:.75;transition:.2s}.nl:hover,.nl.on{opacity:1;color:#FBC02D}
-.btn{position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
-.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-130%);transition:transform .7s}
-.btn:hover::after{transform:translateX(130%)}
-.inp{width:100%;padding:.85rem 1.1rem;border:1.5px solid rgba(255,255,255,.18);border-radius:1rem;background:rgba(255,255,255,.07);color:#fff;font-size:.9rem;outline:none;transition:.25s}
-.inp::placeholder{color:rgba(255,255,255,.5)}.inp option{color:#111}
-.inp:focus{border-color:#FBC02D;background:rgba(255,255,255,.12);box-shadow:0 0 0 4px rgba(251,192,45,.18)}
-.inp.err{border-color:#f87171}.em{color:#fca5a5;font-size:.75rem;margin-top:.25rem;min-height:1rem}
-#bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:70;background:linear-gradient(90deg,#FBC02D,#F57C00,#FF6D9D)}
-#cg{position:fixed;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:9999px;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(63,81,181,.14),transparent 65%);transition:opacity .3s}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.w{opacity:1;transform:none;filter:none}}
-</style>
-</head>
-<body>
-<div id="bar"></div><div id="cg" class="hidden md:block"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Young English Academy - With Gayan Vimukthi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              deep: "#283593",
+              acc: "#3F51B5",
+              soft: "#F4F5F7",
+              ink: "#212121",
+              night: "#080C2B",
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+              disp: ['"Bricolage Grotesque"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: #212121;
+        background: #fff;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      .disp {
+        font-family: "Bricolage Grotesque", sans-serif;
+        letter-spacing: -0.025em;
+      }
+      .rv {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        filter: blur(6px);
+        transition: all 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+        transition-delay: var(--d, 0ms);
+      }
+      .rv.in {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+      .w {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(60%) rotate(4deg);
+        animation: wu 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        animation-delay: calc(var(--i) * 70ms + 200ms);
+      }
+      @keyframes wu {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .gt {
+        background: linear-gradient(90deg, #fbc02d, #f57c00, #ff6d9d, #fbc02d);
+        background-size: 250% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: sh 6s linear infinite;
+      }
+      @keyframes sh {
+        to {
+          background-position: 250% 0;
+        }
+      }
+      @keyframes fl {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+      .fl {
+        animation: fl 6s ease-in-out infinite;
+      }
+      .fl2 {
+        animation: fl 8s ease-in-out infinite reverse;
+      }
+      @keyframes mq {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .mq {
+        animation: mq 28s linear infinite;
+      }
+      @keyframes au {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(40px, -30px) scale(1.15);
+        }
+      }
+      .au {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(90px);
+        animation: au 14s ease-in-out infinite;
+      }
+      .grain::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.07;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .slant {
+        clip-path: polygon(0 16%, 100% 0, 100% 84%, 0 100%);
+      }
+      .spot {
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.4s,
+          box-shadow 0.4s;
+      }
+      .spot::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+        background: radial-gradient(
+          380px circle at var(--mx, 50%) var(--my, 50%),
+          rgba(63, 81, 181, 0.22),
+          transparent 60%
+        );
+      }
+      .spot:hover::before {
+        opacity: 1;
+      }
+      .spot:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 50px -20px rgba(40, 53, 147, 0.45);
+      }
+      .spot > * {
+        position: relative;
+      }
+      .nl {
+        opacity: 0.75;
+        transition: 0.2s;
+      }
+      .nl:hover,
+      .nl.on {
+        opacity: 1;
+        color: #fbc02d;
+      }
+      .btn {
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .btn::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          110deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.55) 50%,
+          transparent 70%
+        );
+        transform: translateX(-130%);
+        transition: transform 0.7s;
+      }
+      .btn:hover::after {
+        transform: translateX(130%);
+      }
+      .inp {
+        width: 100%;
+        padding: 0.85rem 1.1rem;
+        border: 1.5px solid rgba(255, 255, 255, 0.18);
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.07);
+        color: #fff;
+        font-size: 0.9rem;
+        outline: none;
+        transition: 0.25s;
+      }
+      .inp::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .inp option {
+        color: #111;
+      }
+      .inp:focus {
+        border-color: #fbc02d;
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 0 0 4px rgba(251, 192, 45, 0.18);
+      }
+      .inp.err {
+        border-color: #f87171;
+      }
+      .em {
+        color: #fca5a5;
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+        min-height: 1rem;
+      }
+      #bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0;
+        z-index: 70;
+        background: linear-gradient(90deg, #fbc02d, #f57c00, #ff6d9d);
+      }
+      #cg {
+        position: fixed;
+        width: 420px;
+        height: 420px;
+        margin: -210px 0 0 -210px;
+        border-radius: 9999px;
+        pointer-events: none;
+        z-index: 1;
+        background: radial-gradient(
+          circle,
+          rgba(63, 81, 181, 0.14),
+          transparent 65%
+        );
+        transition: opacity 0.3s;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+        .rv,
+        .w {
+          opacity: 1;
+          transform: none;
+          filter: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bar"></div>
+    <div id="cg" class="hidden md:block"></div>
 
-<!-- HEADER (floating glass pill) -->
-<header id="hd" class="fixed top-4 inset-x-0 z-50 px-4">
- <div class="glass max-w-6xl mx-auto rounded-full h-16 px-5 flex items-center justify-between text-white shadow-2xl shadow-black/20">
-  <a href="#home" class="leading-none"><span class="disp flex text-2xl font-extrabold tracking-wider"><span style="color:#F57C00">Y</span><span style="color:#4FA3FF">O</span><span style="color:#4ADE80">U</span><span style="color:#FBC02D">N</span><span style="color:#29B6F6">G</span></span><span class="block text-[8px] font-bold tracking-[.3em] opacity-80 mt-0.5">ENGLISH ACADEMY</span></a>
-  <nav id="nav" class="hidden md:flex gap-7 text-xs font-bold tracking-widest"><a class="nl" href="#home">HOME</a><a class="nl" href="#programs">PROGRAMS</a><a class="nl" href="#about">ABOUT</a><a class="nl" href="#gallery">GALLERY</a><a class="nl" href="#branches">BRANCHES</a><a class="nl" href="#enroll">CONTACT</a></nav>
-  <div class="flex items-center gap-2">
-   <a href="#enroll" class="btn px-5 py-2.5 rounded-full bg-yellow-400 text-night text-xs font-extrabold tracking-wider hover:scale-105">ENROLL NOW</a>
-   <button id="mb" aria-label="Menu" class="md:hidden p-2"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h16M3 11h16M3 16h16"/></svg></button>
-  </div>
- </div>
- <div id="mm" class="hidden md:hidden glass mt-2 rounded-3xl p-5 space-y-3 text-white text-sm font-bold max-w-6xl mx-auto bg-night/90"><a class="block" href="#home">HOME</a><a class="block" href="#programs">PROGRAMS</a><a class="block" href="#about">ABOUT</a><a class="block" href="#gallery">GALLERY</a><a class="block" href="#branches">BRANCHES</a><a class="block" href="#enroll">CONTACT / ENROLL</a></div>
-</header>
+    <!-- HEADER (floating glass pill) -->
+    <header id="hd" class="fixed top-4 inset-x-0 z-50 px-4">
+      <div
+        class="glass max-w-6xl mx-auto rounded-full h-16 px-5 flex items-center justify-between text-white shadow-2xl shadow-black/20"
+      >
+        <a href="#home" class="leading-none"
+          ><span class="disp flex text-2xl font-extrabold tracking-wider font-times-new-roman"
+            ><span style="color: #f57c00">Y</span
+            ><span style="color: #4fa3ff">O</span
+            ><span style="color: #4ade80">U</span
+            ><span style="color: #fbc02d">N</span
+            ><span style="color: #29b6f6">G</span></span
+          ><span
+            class="block text-[8px] font-bold tracking-[.3em] opacity-80 mt-0.5"
+            >ENGLISH ACADEMY</span
+          ></a
+        >
+        <nav
+          id="nav"
+          class="hidden md:flex gap-7 text-xs font-bold tracking-widest"
+        >
+          <a class="nl" href="#home">HOME</a
+          ><a class="nl" href="#programs">PROGRAMS</a
+          ><a class="nl" href="#about">ABOUT</a
+          ><a class="nl" href="#gallery">GALLERY</a
+          ><a class="nl" href="#branches">BRANCHES</a
+          ><a class="nl" href="#enroll">CONTACT</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a
+            href="#enroll"
+            class="btn px-5 py-2.5 rounded-full bg-yellow-400 text-night text-xs font-extrabold tracking-wider hover:scale-105"
+            >ENROLL NOW</a
+          >
+          <button id="mb" aria-label="Menu" class="md:hidden p-2">
+            <svg
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <path d="M3 6h16M3 11h16M3 16h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mm"
+        class="hidden md:hidden glass mt-2 rounded-3xl p-5 space-y-3 text-white text-sm font-bold max-w-6xl mx-auto bg-night/90"
+      >
+        <a class="block" href="#home">HOME</a
+        ><a class="block" href="#programs">PROGRAMS</a
+        ><a class="block" href="#about">ABOUT</a
+        ><a class="block" href="#gallery">GALLERY</a
+        ><a class="block" href="#branches">BRANCHES</a
+        ><a class="block" href="#enroll">CONTACT / ENROLL</a>
+      </div>
+    </header>
 
-<!-- HERO -->
-<section id="home" class="relative overflow-hidden bg-night text-white pt-32 grain">
- <div class="au w-[30rem] h-[30rem] bg-acc/70 -top-40 -left-32"></div>
- <div class="au w-[26rem] h-[26rem] bg-fuchsia-600/40 top-20 right-[-8rem]" style="animation-delay:-4s"></div>
- <div class="au w-80 h-80 bg-orange-500/30 bottom-20 left-1/3" style="animation-delay:-8s"></div>
- <div class="absolute inset-0 opacity-[.12] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]"></div>
- <svg class="absolute inset-0 w-full h-full opacity-[.05]" aria-hidden="true"><defs><pattern id="cr" width="46" height="46" patternUnits="userSpaceOnUse"><circle cx="12" cy="10" r="5" fill="#fff"/><path d="M3 30a9 9 0 0 1 18 0v6H3z" fill="#fff"/><circle cx="34" cy="26" r="4" fill="#fff"/><path d="M27 42a7 7 0 0 1 14 0z" fill="#fff"/></pattern></defs><rect width="100%" height="100%" fill="url(#cr)"/></svg>
+    <!-- HERO -->
+    <section
+      id="home"
+      class="relative overflow-hidden bg-night text-white pt-32 grain"
+    >
+      <div class="au w-[30rem] h-[30rem] bg-acc/70 -top-40 -left-32"></div>
+      <div
+        class="au w-[26rem] h-[26rem] bg-fuchsia-600/40 top-20 right-[-8rem]"
+        style="animation-delay: -4s"
+      ></div>
+      <div
+        class="au w-80 h-80 bg-orange-500/30 bottom-20 left-1/3"
+        style="animation-delay: -8s"
+      ></div>
+      <div
+        class="absolute inset-0 opacity-[.12] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]"
+      ></div>
+      <svg
+        class="absolute inset-0 w-full h-full opacity-[.05]"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern id="cr" width="46" height="46" patternUnits="userSpaceOnUse">
+            <circle cx="12" cy="10" r="5" fill="#fff" />
+            <path d="M3 30a9 9 0 0 1 18 0v6H3z" fill="#fff" />
+            <circle cx="34" cy="26" r="4" fill="#fff" />
+            <path d="M27 42a7 7 0 0 1 14 0z" fill="#fff" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#cr)" />
+      </svg>
 
- <div class="relative max-w-7xl mx-auto px-4 lg:px-8 pb-56 grid lg:grid-cols-12 gap-10 items-center">
-  <div class="lg:col-span-7 text-center lg:text-left">
-   <span class="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold rv"><span class="relative flex h-2 w-2"><span class="absolute h-full w-full rounded-full bg-green-400 animate-ping"></span><span class="relative h-2 w-2 rounded-full bg-green-400"></span></span>Enrolling now: 2026 intakes</span>
-   <h1 id="h1" class="mt-6 text-[2.6rem] sm:text-6xl xl:text-7xl font-extrabold leading-[1.02]">Unlock a world of global opportunities and keep your <span class="gt">dreams brilliantly</span> YOUNG!</h1>
-   <p class="mt-6 text-lg text-indigo-100/90 rv" style="--d:300ms">Master <b id="rot" class="text-yellow-300 transition-all duration-300 inline-block">Spoken English</b> with confidence.</p>
-   <p class="mt-2 max-w-xl mx-auto lg:mx-0 text-indigo-200/70 text-sm rv" style="--d:400ms">Sri Lanka's leading English academy. Learn with Gayan Vimukthi and mentors who make fluency feel natural.</p>
-   <div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start rv" style="--d:500ms">
-    <a href="#enroll" class="btn mg px-9 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-night font-extrabold shadow-xl shadow-orange-500/30">Enroll Now &rarr;</a>
-    <a href="#programs" class="mg glass px-9 py-4 rounded-full font-bold hover:bg-white/15 transition">Explore Courses</a>
-   </div>
-  </div>
+      <div
+        class="relative max-w-7xl mx-auto px-4 lg:px-8 pb-56 grid lg:grid-cols-12 gap-10 items-center"
+      >
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <span
+            class="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold rv"
+            ><span class="relative flex h-2 w-2"
+              ><span
+                class="absolute h-full w-full rounded-full bg-green-400 animate-ping"
+              ></span
+              ><span
+                class="relative h-2 w-2 rounded-full bg-green-400"
+              ></span></span
+            >Enrolling now: 2026 intakes</span
+          >
+          <h1
+            id="h1"
+            class="mt-6 text-[2.6rem] sm:text-6xl xl:text-7xl font-extrabold leading-[1.02]"
+          >
+            Unlock a world of global opportunities and keep your
+            <span class="gt">dreams brilliantly</span> YOUNG!
+          </h1>
+          <p class="mt-6 text-lg text-indigo-100/90 rv" style="--d: 300ms">
+            Master
+            <b
+              id="rot"
+              class="text-yellow-300 transition-all duration-300 inline-block"
+              >Spoken English</b
+            >
+            with confidence.
+          </p>
+          <p
+            class="mt-2 max-w-xl mx-auto lg:mx-0 text-indigo-200/70 text-sm rv"
+            style="--d: 400ms"
+          >
+            Sri Lanka's leading English academy. Learn with Gayan Vimukthi and
+            mentors who make fluency feel natural.
+          </p>
+          <div
+            class="mt-9 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start rv"
+            style="--d: 500ms"
+          >
+            <a
+              href="#enroll"
+              class="btn mg px-9 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-night font-extrabold shadow-xl shadow-orange-500/30"
+              >Enroll Now &rarr;</a
+            >
+            <a
+              href="#programs"
+              class="mg glass px-9 py-4 rounded-full font-bold hover:bg-white/15 transition"
+              >Explore Courses</a
+            >
+          </div>
+        </div>
 
-  <div class="lg:col-span-5 rv" style="--d:300ms">
-   <div class="relative max-w-md mx-auto" id="hv">
-    <div class="absolute -inset-4 rounded-[3rem] bg-gradient-to-tr from-yellow-400/40 via-fuchsia-500/30 to-acc/50 blur-2xl"></div>
-    <div class="relative rounded-[2.5rem] p-2 glass">
-     <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80" alt="Three YEA instructors in black blazers with crossed arms" class="w-full h-[380px] sm:h-[460px] object-cover object-top rounded-[2rem]">
+        <div class="lg:col-span-5 rv" style="--d: 300ms">
+          <div class="relative max-w-md mx-auto" id="hv">
+            <div
+              class="absolute -inset-4 rounded-[3rem] bg-gradient-to-tr from-yellow-400/40 via-fuchsia-500/30 to-acc/50 blur-2xl"
+            ></div>
+            <div class="relative rounded-[2.5rem] p-2 glass">
+              <img
+                src="images/GV.jpg"
+                alt="Instructor Gayan Vimukthi"
+                class="w-full h-[380px] sm:h-[460px] object-cover object-top rounded-[2rem]"
+              />
+            </div>
+            <div
+              class="fl absolute -left-3 sm:-left-10 top-8 bg-deep rounded-3xl px-6 py-4 shadow-2xl shadow-black/40 border border-white/20"
+              data-p="22"
+            >
+              <div class="disp text-4xl font-extrabold leading-none">
+                <span data-c="1000">0</span>+
+              </div>
+              <div
+                class="text-[11px] font-bold tracking-[.25em] mt-1 text-indigo-200"
+              >
+                STUDENTS
+              </div>
+            </div>
+            <div
+              class="fl2 absolute -right-2 sm:-right-8 top-1/2 glass rounded-2xl px-4 py-3"
+              data-p="-26"
+            >
+              <div class="disp text-2xl font-extrabold text-yellow-300">
+                <span data-c="98">0</span>%
+              </div>
+              <div
+                class="text-[10px] font-bold tracking-widest text-indigo-200"
+              >
+                SUCCESS RATE
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=80"
+              alt="Smiling students, one making a peace sign"
+              class="fl absolute -bottom-8 -right-2 sm:-right-6 w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-night shadow-2xl ring-4 ring-yellow-400/80"
+              data-p="30"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- slanted banner -->
+      <div
+        class="absolute bottom-0 inset-x-0 slant bg-gradient-to-r from-deep via-acc to-deep"
+      >
+        <div
+          class="max-w-7xl mx-auto px-4 lg:px-8 pt-20 pb-9 grid md:grid-cols-[1fr_auto] items-center gap-5 text-center md:text-left"
+        >
+          <div>
+            <div
+              class="text-[11px] md:text-sm font-bold tracking-[.35em] text-indigo-200"
+            >
+              WELCOME TO
+            </div>
+            <div class="disp text-3xl md:text-6xl font-extrabold">
+              Young English Academy
+            </div>
+          </div>
+          <a
+            href="#enroll"
+            class="btn mg justify-self-center px-9 py-4 rounded-full bg-white text-deep font-extrabold text-sm tracking-wider shadow-xl"
+            >ENROLL NOW</a
+          >
+        </div>
+        <div
+          class="max-w-7xl mx-auto px-4 lg:px-8 pb-5 font-mono text-xs md:text-sm text-yellow-300 text-center md:text-left"
+        >
+          #YouOwnUnlimitedNewGrowth
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div
+      class="bg-yellow-400 text-night py-3 overflow-hidden whitespace-nowrap disp font-extrabold text-lg"
+    >
+      <div class="mq inline-block" id="mq"></div>
     </div>
-    <div class="fl absolute -left-3 sm:-left-10 top-8 bg-deep rounded-3xl px-6 py-4 shadow-2xl shadow-black/40 border border-white/20" data-p="22">
-     <div class="disp text-4xl font-extrabold leading-none"><span data-c="1000">0</span>+</div><div class="text-[11px] font-bold tracking-[.25em] mt-1 text-indigo-200">STUDENTS</div>
+
+    <!-- PROGRAMS -->
+    <section id="programs" class="py-28 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8">
+        <div class="max-w-2xl rv">
+          <span class="text-acc font-bold text-xs tracking-[.3em]"
+            >WHAT WE TEACH</span
+          >
+          <h2 class="text-4xl md:text-6xl font-extrabold mt-3 leading-[1.05]">
+            Programs built for <span class="text-acc">real fluency.</span>
+          </h2>
+        </div>
+        <div
+          id="pg"
+          class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        ></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section
+      id="about"
+      class="py-28 bg-night text-white relative overflow-hidden grain"
+    >
+      <div class="au w-96 h-96 bg-acc/50 -right-20 top-0"></div>
+      <div
+        class="relative max-w-7xl mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center"
+      >
+        <div class="rv relative">
+          <div
+            class="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br from-yellow-400 to-fuchsia-500 rotate-3 opacity-80"
+          ></div>
+          <img
+            src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80"
+            alt="Gayan Vimukthi teaching"
+            class="relative rounded-[2.5rem] w-full h-[440px] object-cover"
+          />
+        </div>
+        <div class="rv" style="--d: 150ms">
+          <span class="text-yellow-300 font-bold text-xs tracking-[.3em]"
+            >OUR STORY</span
+          >
+          <h2 class="text-4xl md:text-5xl font-extrabold mt-3 leading-[1.05]">
+            How YEA started &amp; how it's going
+          </h2>
+          <p class="mt-5 text-indigo-100/80 text-sm leading-relaxed">
+            Founded by educator <b class="text-yellow-300">Gayan Vimukthi</b>,
+            Young English Academy began as one classroom in Kiribathgoda with a
+            simple goal: break language barriers and build real, confident
+            communication.
+          </p>
+          <p class="mt-3 text-indigo-100/80 text-sm leading-relaxed">
+            Today YEA is a growing multi-branch network. Our mission is to give
+            every learner the self-belief to present themselves to the world
+            with courage.
+          </p>
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            <div class="glass rounded-3xl p-5">
+              <div class="disp text-4xl font-extrabold text-yellow-300">
+                <span data-c="10">0</span>+
+              </div>
+              <div class="text-xs font-semibold text-indigo-200 mt-1">
+                Years of Excellence
+              </div>
+            </div>
+            <div class="glass rounded-3xl p-5">
+              <div class="disp text-4xl font-extrabold text-yellow-300">
+                <span data-c="25">0</span>+
+              </div>
+              <div class="text-xs font-semibold text-indigo-200 mt-1">
+                Certified Instructors
+              </div>
+            </div>
+            <div class="glass rounded-3xl p-5">
+              <div class="disp text-4xl font-extrabold text-yellow-300">
+                <span data-c="10000">0</span>+
+              </div>
+              <div class="text-xs font-semibold text-indigo-200 mt-1">
+                Graduates
+              </div>
+            </div>
+            <div class="glass rounded-3xl p-5">
+              <div class="disp text-4xl font-extrabold text-yellow-300">
+                <span data-c="4">0</span>+
+              </div>
+              <div class="text-xs font-semibold text-indigo-200 mt-1">
+                Branches
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="py-28 bg-soft">
+      <div class="max-w-6xl mx-auto px-4 lg:px-8">
+        <div class="text-center rv">
+          <span class="text-acc font-bold text-xs tracking-[.3em]"
+            >MOMENTS</span
+          >
+          <h2 class="text-4xl md:text-6xl font-extrabold mt-3">Life at YEA</h2>
+        </div>
+        <div class="mt-8 flex justify-center gap-2 rv">
+          <div class="bg-white rounded-full p-1.5 shadow flex gap-1">
+            <button
+              data-t="batches"
+              class="gtb px-6 py-2.5 rounded-full text-sm font-bold bg-deep text-white transition"
+            >
+              Past Batches
+            </button>
+            <button
+              data-t="albums"
+              class="gtb px-6 py-2.5 rounded-full text-sm font-bold text-slate-600 transition"
+            >
+              Event Albums
+            </button>
+          </div>
+        </div>
+        <div id="batches" class="mt-8 rv">
+          <div
+            class="relative overflow-hidden rounded-[2rem] shadow-2xl h-72 md:h-[28rem] bg-night"
+          >
+            <div
+              id="st"
+              class="flex h-full transition-transform duration-700 ease-[cubic-bezier(.7,0,.2,1)]"
+            ></div>
+            <button
+              id="sp"
+              aria-label="Previous"
+              class="glass absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full text-white text-xl hover:bg-white/25"
+            >
+              &#8249;
+            </button>
+            <button
+              id="sn"
+              aria-label="Next"
+              class="glass absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full text-white text-xl hover:bg-white/25"
+            >
+              &#8250;
+            </button>
+            <div
+              id="sd"
+              class="absolute bottom-4 inset-x-0 flex justify-center gap-2"
+            ></div>
+          </div>
+        </div>
+        <div
+          id="albums"
+          class="hidden mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        ></div>
+      </div>
+    </section>
+
+    <!-- BRANCHES -->
+    <section id="branches" class="py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8">
+        <div class="max-w-2xl rv">
+          <span class="text-acc font-bold text-xs tracking-[.3em]"
+            >JOIN WITH US</span
+          >
+          <h2 class="text-4xl md:text-6xl font-extrabold mt-3 leading-[1.05]">
+            Find a campus <span class="text-acc">near you.</span>
+          </h2>
+        </div>
+        <div
+          id="bg"
+          class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        ></div>
+      </div>
+    </section>
+
+    <!-- ENROLL / CONTACT -->
+    <section
+      id="enroll"
+      class="py-28 bg-night text-white relative overflow-hidden grain"
+    >
+      <div class="au w-[28rem] h-[28rem] bg-acc/50 -left-32 top-10"></div>
+      <div
+        class="au w-80 h-80 bg-orange-500/30 right-0 bottom-0"
+        style="animation-delay: -6s"
+      ></div>
+      <div class="relative max-w-3xl mx-auto px-4 lg:px-8">
+        <div class="text-center rv">
+          <span class="text-yellow-300 font-bold text-xs tracking-[.3em]"
+            >GET STARTED</span
+          >
+          <h2 class="text-4xl md:text-6xl font-extrabold mt-3">
+            Your seat is waiting.
+          </h2>
+        </div>
+        <div class="mt-8 glass rounded-full p-1.5 flex rv" id="ft">
+          <button
+            data-f="reg"
+            class="ftb w-1/2 py-3 rounded-full text-sm font-bold bg-yellow-400 text-night transition"
+          >
+            Register for Next Intake
+          </button>
+          <button
+            data-f="con"
+            class="ftb w-1/2 py-3 rounded-full text-sm font-bold transition"
+          >
+            Contact Us
+          </button>
+        </div>
+        <div class="mt-6 glass rounded-[2rem] p-6 md:p-10 rv">
+          <div id="ok" class="hidden text-center py-8">
+            <div
+              class="w-16 h-16 mx-auto rounded-full bg-emerald-500 flex items-center justify-center text-3xl"
+            >
+              &#10003;
+            </div>
+            <h3 class="mt-4 text-2xl font-bold">Submitted successfully!</h3>
+            <p id="okm" class="text-sm text-indigo-200 mt-1"></p>
+            <button
+              onclick="showForm()"
+              class="mt-5 px-6 py-2.5 rounded-full bg-yellow-400 text-night text-sm font-bold"
+            >
+              Send another
+            </button>
+          </div>
+          <form id="reg" novalidate class="grid md:grid-cols-2 gap-5">
+            <div>
+              <input
+                class="inp"
+                name="Name"
+                data-v="req"
+                placeholder="Full name"
+              />
+              <div class="em"></div>
+            </div>
+            <div>
+              <input
+                class="inp"
+                name="Phone"
+                data-v="phone"
+                type="tel"
+                placeholder="Contact number (077 123 4567)"
+              />
+              <div class="em"></div>
+            </div>
+            <div>
+              <select class="inp" name="Gender" data-v="req">
+                <option value="">Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+              <div class="em"></div>
+            </div>
+            <div>
+              <select class="inp" name="Location" data-v="req">
+                <option value="">YEA location</option>
+                <option>YEA Kiribathgoda</option>
+                <option>YEA Gampaha</option>
+                <option>YEA Nittambuwa</option>
+                <option>YEA Negombo</option>
+              </select>
+              <div class="em"></div>
+            </div>
+            <div>
+              <input
+                class="inp"
+                name="City"
+                data-v="req"
+                placeholder="Nearest city"
+              />
+              <div class="em"></div>
+            </div>
+            <div>
+              <select class="inp" id="ps" name="Program" data-v="req">
+                <option value="">Select program</option>
+              </select>
+              <div class="em"></div>
+            </div>
+            <button
+              class="btn md:col-span-2 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-night font-extrabold tracking-wider shadow-xl shadow-orange-500/30"
+            >
+              SUBMIT REGISTRATION
+            </button>
+          </form>
+          <form id="con" novalidate class="hidden grid gap-5">
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <input
+                  class="inp"
+                  name="Name"
+                  data-v="req"
+                  placeholder="Your name"
+                />
+                <div class="em"></div>
+              </div>
+              <div>
+                <input
+                  class="inp"
+                  name="Phone"
+                  data-v="phone"
+                  type="tel"
+                  placeholder="Contact number"
+                />
+                <div class="em"></div>
+              </div>
+            </div>
+            <div>
+              <input
+                class="inp"
+                name="Title"
+                data-v="req"
+                placeholder="Inquiry title"
+              />
+              <div class="em"></div>
+            </div>
+            <div>
+              <textarea
+                class="inp"
+                rows="4"
+                name="Message"
+                data-v="msg"
+                placeholder="Briefly tell us what you want to know"
+              ></textarea>
+              <div class="em"></div>
+            </div>
+            <button
+              class="btn py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-night font-extrabold tracking-wider shadow-xl shadow-orange-500/30"
+            >
+              SEND INQUIRY
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#050820] text-white pt-16">
+      <div
+        class="max-w-7xl mx-auto px-4 lg:px-8 grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12"
+      >
+        <div>
+          <span class="disp flex text-3xl font-extrabold tracking-wider"
+            ><span style="color: #f57c00">Y</span
+            ><span style="color: #4fa3ff">O</span
+            ><span style="color: #4ade80">U</span
+            ><span style="color: #fbc02d">N</span
+            ><span style="color: #29b6f6">G</span></span
+          ><span
+            class="block text-[10px] font-bold tracking-[.3em] text-indigo-300 mt-1"
+            >ENGLISH ACADEMY</span
+          >
+          <p class="mt-4 text-sm font-semibold text-slate-200">
+            Young English Academy - With Gayan Vimukthi
+          </p>
+          <p class="mt-2 text-xs text-slate-400">
+            Empowering Sri Lanka's youth with fluent English and global
+            confidence.
+          </p>
+        </div>
+        <div>
+          <h4 class="disp font-bold text-yellow-300 mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li><a class="hover:text-white" href="#home">Home</a></li>
+            <li><a class="hover:text-white" href="#programs">Programs</a></li>
+            <li><a class="hover:text-white" href="#about">About</a></li>
+            <li><a class="hover:text-white" href="#gallery">Gallery</a></li>
+            <li><a class="hover:text-white" href="#enroll">Enroll</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="disp font-bold text-yellow-300 mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li>+94 77 123 4567</li>
+            <li>+94 11 291 8888</li>
+            <li>info@youngenglishacademy.lk</li>
+            <li>Daily: 8:30 AM - 5:30 PM</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="disp font-bold text-yellow-300 mb-4">Branches</h4>
+          <ul id="fb" class="space-y-2 text-sm text-slate-300"></ul>
+        </div>
+      </div>
+      <div
+        class="border-t border-white/10 py-5 text-center text-xs text-slate-400"
+      >
+        &copy; 2026 Young English Academy. All rights reserved.
+        <span class="text-yellow-300 font-mono ml-2"
+          >#YouOwnUnlimitedNewGrowth</span
+        >
+      </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div
+      id="md"
+      class="hidden fixed inset-0 z-[80] bg-black/70 backdrop-blur-md flex items-center justify-center p-4"
+      onclick="if (event.target === this) closeM();"
+    >
+      <div
+        class="bg-white rounded-[2rem] max-w-3xl w-full p-6 max-h-[90vh] overflow-y-auto"
+      >
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 id="mt" class="text-xl font-bold"></h3>
+            <p id="ms" class="text-xs text-slate-500"></p>
+          </div>
+          <button
+            onclick="closeM()"
+            aria-label="Close"
+            class="text-3xl leading-none px-2"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="mb2"></div>
+      </div>
     </div>
-    <div class="fl2 absolute -right-2 sm:-right-8 top-1/2 glass rounded-2xl px-4 py-3" data-p="-26"><div class="disp text-2xl font-extrabold text-yellow-300"><span data-c="98">0</span>%</div><div class="text-[10px] font-bold tracking-widest text-indigo-200">SUCCESS RATE</div></div>
-    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=80" alt="Smiling students, one making a peace sign" class="fl absolute -bottom-8 -right-2 sm:-right-6 w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-night shadow-2xl ring-4 ring-yellow-400/80" data-p="30">
-   </div>
-  </div>
- </div>
 
- <!-- slanted banner -->
- <div class="absolute bottom-0 inset-x-0 slant bg-gradient-to-r from-deep via-acc to-deep">
-  <div class="max-w-7xl mx-auto px-4 lg:px-8 pt-20 pb-9 grid md:grid-cols-[1fr_auto] items-center gap-5 text-center md:text-left">
-   <div><div class="text-[11px] md:text-sm font-bold tracking-[.35em] text-indigo-200">WELCOME TO</div><div class="disp text-3xl md:text-6xl font-extrabold">Young English Academy</div></div>
-   <a href="#enroll" class="btn mg justify-self-center px-9 py-4 rounded-full bg-white text-deep font-extrabold text-sm tracking-wider shadow-xl">ENROLL NOW</a>
-  </div>
-  <div class="max-w-7xl mx-auto px-4 lg:px-8 pb-5 font-mono text-xs md:text-sm text-yellow-300 text-center md:text-left">#YouOwnUnlimitedNewGrowth</div>
- </div>
-</section>
+    <script>
+      const $ = (s) => document.querySelector(s),
+        $$ = (s) => [...document.querySelectorAll(s)];
+      const img = (id, w = 800) =>
+        `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+      const fine =
+        matchMedia("(hover:hover)").matches &&
+        !matchMedia("(prefers-reduced-motion:reduce)").matches;
+      document.addEventListener(
+        "error",
+        (e) => {
+          if (e.target.tagName === "IMG" && !e.target.dataset.f) {
+            e.target.dataset.f = 1;
+            e.target.src =
+              "https://placehold.co/800x600/283593/FFFFFF?text=YEA";
+          }
+        },
+        true,
+      );
 
-<!-- MARQUEE -->
-<div class="bg-yellow-400 text-night py-3 overflow-hidden whitespace-nowrap disp font-extrabold text-lg">
- <div class="mq inline-block" id="mq"></div>
-</div>
+      const ic = {
+        mic: "M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zM19 10v1a7 7 0 0 1-14 0v-1M12 18v4",
+        target:
+          "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z",
+        bag: "M3 7h18v13H3zM8 7V4h8v3",
+        book: "M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4zM4 16a4 4 0 0 1 4-4h12",
+        cap: "M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5",
+        pen: "M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z",
+      };
+      const P = [
+        [
+          "mic",
+          "Spoken English Mastery",
+          "Beat hesitation with daily fluency drills, pronunciation coaching and public speaking practice.",
+          "4 Months",
+          "#F57C00",
+        ],
+        [
+          "target",
+          "IELTS Academic & General",
+          "Mock tests, essay feedback and speaking interviews aimed at Band 7.0+.",
+          "3 Months",
+          "#1976D2",
+        ],
+        [
+          "bag",
+          "Business Communication",
+          "Professional emails, reports, interviews and presentation skills for the workplace.",
+          "2 Months",
+          "#388E3C",
+        ],
+        [
+          "book",
+          "Grammar & Vocabulary Booster",
+          "Clear up tenses, prepositions and sentence structure with guided practice.",
+          "3 Months",
+          "#3F51B5",
+        ],
+        [
+          "cap",
+          "Young Learners Diploma",
+          "Confidence-building diploma for school leavers: speeches, stories and group discussion.",
+          "4 Months",
+          "#E0A800",
+        ],
+        [
+          "pen",
+          "Creative & Academic Writing",
+          "Essays, reports and creative writing with one-to-one feedback from mentors.",
+          "2 Months",
+          "#0288D1",
+        ],
+      ];
+      const B = [
+        [
+          "YEA - Kiribathgoda",
+          "Wasity Higher Institute, Kandy Road, Kiribathgoda.",
+          "+94 71 375 4567",
+          "images/YEA Kiribathgoda.png",
+        ],
+        [
+          "YEA - Gampaha",
+          "Nanila Higher Education Institute, Weera Lane, Gampaha.",
+          "+94 11 432 1100",
+          "images/YEA Gampaha.webp",
+        ],
+        [
+          "YEA - Nittambuwa",
+          "Araliya Institute of Education, Mudalindu Uyana Road, Nittambuwa.",
+          "+94 81 223 9900",
+          "images/YEA Nittambuwa.webp",
+        ],
+        [
+          "YEA - Negombo",
+          "NexGen Education, Pedare Pio Mawatha, Negombo.",
+          "+94 91 224 5500",
+          "images/YEA Negombo.webp",
+        ],
+      ];
+      const S = [
+        ["1524178232363-1fb2b075b655", "Batch 42 - Spoken English Graduation"],
+        ["1531482615713-2afd69097998", "IELTS Speaking Workshop"],
+        ["1511632765486-a01980e01a18", "Annual Youth English Camp"],
+      ];
+      const A = [
+        [
+          "Annual Awards Night 2025",
+          [
+            "1511578314322-379afb476865",
+            "1475721027785-f74eccf877e2",
+            "1523580494863-6f3031224c94",
+          ],
+        ],
+        [
+          "Speech & Debate Contest",
+          ["1475721027785-f74eccf877e2", "1524178232363-1fb2b075b655"],
+        ],
+        [
+          "Outdoor Learning Camp",
+          ["1529156069898-49953e39b3ac", "1523240795612-9a054b0db644"],
+        ],
+      ];
 
-<!-- PROGRAMS -->
-<section id="programs" class="py-28 bg-white relative">
- <div class="max-w-7xl mx-auto px-4 lg:px-8">
-  <div class="max-w-2xl rv"><span class="text-acc font-bold text-xs tracking-[.3em]">WHAT WE TEACH</span><h2 class="text-4xl md:text-6xl font-extrabold mt-3 leading-[1.05]">Programs built for <span class="text-acc">real fluency.</span></h2></div>
-  <div id="pg" class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
- </div>
-</section>
+      $("#pg").innerHTML = P.map(
+        (p, i) =>
+          `<div class="spot rv rounded-[2rem] p-7 bg-soft border border-slate-200/70 flex flex-col" style="--d:${i * 90}ms"><div class="w-14 h-14 rounded-2xl flex items-center justify-center" style="background:${p[4]}22"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="${p[4]}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${ic[p[0]]}"/></svg></div><span class="text-[11px] font-bold text-acc mt-5 tracking-widest">${p[3].toUpperCase()}</span><h3 class="text-2xl font-extrabold mt-1 text-deep leading-tight">${p[1]}</h3><p class="text-sm text-slate-600 mt-3 flex-1">${p[2]}</p><button onclick="pick('${p[1].replace("'", "")}')" class="mt-6 text-left text-sm font-bold text-deep group">Enroll in program <span class="inline-block transition group-hover:translate-x-1.5">&rarr;</span></button></div>`,
+      ).join("");
+      $("#ps").innerHTML += P.map((p) => `<option>${p[1]}</option>`).join("");
+      $("#bg").innerHTML = B.map(
+        (b, i) =>
+          `<div class="spot rv rounded-[2rem] bg-soft overflow-hidden flex flex-col border border-slate-200/70" style="--d:${i * 90}ms"><img src="${b[3]}" alt="${b[0]}" class="h-36 w-full object-cover"><div class="p-5 flex-1 flex flex-col"><h3 class="font-extrabold text-lg leading-tight">${b[0]}</h3><p class="text-xs text-slate-600 mt-2">${b[1]}</p><p class="text-xs font-semibold text-slate-700 mt-1">${b[2]}</p><button onclick="mapM(${i})" class="mt-auto pt-4 text-left text-xs font-bold text-acc">View Google Map Location &rarr;</button></div></div>`,
+      ).join("");
+      $("#fb").innerHTML = B.map((b) => `<li>${b[0]}</li>`).join("");
+      $("#st").innerHTML = S.map(
+        (s) =>
+          `<div class="min-w-full h-full relative"><img src="${img(s[0], 1200)}" alt="${s[1]}" class="w-full h-full object-cover opacity-90"><div class="absolute bottom-0 inset-x-0 p-6 pb-12 bg-gradient-to-t from-black/85 to-transparent text-white disp font-extrabold text-xl md:text-3xl">${s[1]}</div></div>`,
+      ).join("");
+      $("#sd").innerHTML = S.map(
+        (_, i) =>
+          `<button aria-label="Slide ${i + 1}" onclick="go(${i})" class="dot h-2 rounded-full bg-white transition-all"></button>`,
+      ).join("");
+      $("#albums").innerHTML = A.map(
+        (a, i) =>
+          `<button onclick="albumM(${i})" class="spot text-left bg-white rounded-[2rem] shadow-md"><img src="${img(a[1][0], 600)}" alt="${a[0]}" class="h-48 w-full object-cover"><div class="p-5"><div class="font-extrabold">${a[0]}</div><div class="text-xs text-slate-500">${a[1].length} photos &middot; click to open</div></div></button>`,
+      ).join("");
+      $("#mq").innerHTML = Array(2)
+        .fill(
+          [
+            "Spoken English",
+            "IELTS Prep",
+            "Business Communication",
+            "Grammar",
+            "Young Learners",
+            "Writing",
+          ]
+            .map((t) => `<span class="mx-6">${t}</span><span>&#10022;</span>`)
+            .join(""),
+        )
+        .join("");
 
-<!-- ABOUT -->
-<section id="about" class="py-28 bg-night text-white relative overflow-hidden grain">
- <div class="au w-96 h-96 bg-acc/50 -right-20 top-0"></div>
- <div class="relative max-w-7xl mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
-  <div class="rv relative"><div class="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br from-yellow-400 to-fuchsia-500 rotate-3 opacity-80"></div><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80" alt="Gayan Vimukthi teaching" class="relative rounded-[2.5rem] w-full h-[440px] object-cover"></div>
-  <div class="rv" style="--d:150ms">
-   <span class="text-yellow-300 font-bold text-xs tracking-[.3em]">OUR STORY</span>
-   <h2 class="text-4xl md:text-5xl font-extrabold mt-3 leading-[1.05]">How YEA started &amp; how it's going</h2>
-   <p class="mt-5 text-indigo-100/80 text-sm leading-relaxed">Founded by educator <b class="text-yellow-300">Gayan Vimukthi</b>, Young English Academy began as one classroom in Kiribathgoda with a simple goal: break language barriers and build real, confident communication.</p>
-   <p class="mt-3 text-indigo-100/80 text-sm leading-relaxed">Today YEA is a growing multi-branch network. Our mission is to give every learner the self-belief to present themselves to the world with courage.</p>
-   <div class="mt-8 grid grid-cols-2 gap-4">
-    <div class="glass rounded-3xl p-5"><div class="disp text-4xl font-extrabold text-yellow-300"><span data-c="10">0</span>+</div><div class="text-xs font-semibold text-indigo-200 mt-1">Years of Excellence</div></div>
-    <div class="glass rounded-3xl p-5"><div class="disp text-4xl font-extrabold text-yellow-300"><span data-c="25">0</span>+</div><div class="text-xs font-semibold text-indigo-200 mt-1">Certified Instructors</div></div>
-    <div class="glass rounded-3xl p-5"><div class="disp text-4xl font-extrabold text-yellow-300"><span data-c="10000">0</span>+</div><div class="text-xs font-semibold text-indigo-200 mt-1">Graduates</div></div>
-    <div class="glass rounded-3xl p-5"><div class="disp text-4xl font-extrabold text-yellow-300"><span data-c="4">0</span>+</div><div class="text-xs font-semibold text-indigo-200 mt-1">Branches</div></div>
-   </div>
-  </div>
- </div>
-</section>
+      /* split headline */
+      let wi = 0;
+      const h1 = $("#h1");
+      h1.childNodes.forEach((n) => {
+        if (n.nodeType === 3) {
+          const f = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach((t) => {
+            if (!t.trim()) return f.append(" ");
+            const s = document.createElement("span");
+            s.className = "w";
+            s.style.setProperty("--i", wi++);
+            s.textContent = t;
+            f.append(s);
+          });
+          n.replaceWith(f);
+        } else {
+          n.classList.add("w");
+          n.style.setProperty("--i", wi++);
+        }
+      });
 
-<!-- GALLERY -->
-<section id="gallery" class="py-28 bg-soft">
- <div class="max-w-6xl mx-auto px-4 lg:px-8">
-  <div class="text-center rv"><span class="text-acc font-bold text-xs tracking-[.3em]">MOMENTS</span><h2 class="text-4xl md:text-6xl font-extrabold mt-3">Life at YEA</h2></div>
-  <div class="mt-8 flex justify-center gap-2 rv"><div class="bg-white rounded-full p-1.5 shadow flex gap-1">
-   <button data-t="batches" class="gtb px-6 py-2.5 rounded-full text-sm font-bold bg-deep text-white transition">Past Batches</button>
-   <button data-t="albums" class="gtb px-6 py-2.5 rounded-full text-sm font-bold text-slate-600 transition">Event Albums</button></div></div>
-  <div id="batches" class="mt-8 rv"><div class="relative overflow-hidden rounded-[2rem] shadow-2xl h-72 md:h-[28rem] bg-night">
-   <div id="st" class="flex h-full transition-transform duration-700 ease-[cubic-bezier(.7,0,.2,1)]"></div>
-   <button id="sp" aria-label="Previous" class="glass absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full text-white text-xl hover:bg-white/25">&#8249;</button>
-   <button id="sn" aria-label="Next" class="glass absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full text-white text-xl hover:bg-white/25">&#8250;</button>
-   <div id="sd" class="absolute bottom-4 inset-x-0 flex justify-center gap-2"></div></div></div>
-  <div id="albums" class="hidden mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
- </div>
-</section>
+      /* chrome */
+      addEventListener(
+        "scroll",
+        () => {
+          $("#bar").style.width =
+            (scrollY / (document.documentElement.scrollHeight - innerHeight)) *
+              100 +
+            "%";
+        },
+        { passive: true },
+      );
+      $("#mb").onclick = () => $("#mm").classList.toggle("hidden");
+      $$("#mm a").forEach(
+        (a) => (a.onclick = () => $("#mm").classList.add("hidden")),
+      );
+      const spy = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting)
+              $$("#nav a").forEach((a) =>
+                a.classList.toggle("on", a.hash === "#" + e.target.id),
+              );
+          }),
+        { rootMargin: "-45% 0px -50% 0px" },
+      );
+      $$("section[id]").forEach((s) => spy.observe(s));
+      const rio = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              rio.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.12 },
+      );
+      $$(".rv").forEach((el) => rio.observe(el));
+      const cio = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target,
+              n = +el.dataset.c,
+              t0 = performance.now();
+            const f = (t) => {
+              const p = Math.min((t - t0) / 1800, 1);
+              el.textContent = Math.round(
+                n * (1 - Math.pow(1 - p, 3)),
+              ).toLocaleString();
+              p < 1 && requestAnimationFrame(f);
+            };
+            requestAnimationFrame(f);
+            cio.unobserve(el);
+          }),
+        { threshold: 0.6 },
+      );
+      $$("[data-c]").forEach((el) => cio.observe(el));
+      const words = [
+        "Spoken English",
+        "IELTS Success",
+        "Business Writing",
+        "Public Speaking",
+        "Grammar",
+      ];
+      let ri = 0;
+      setInterval(() => {
+        const r = $("#rot");
+        r.style.opacity = 0;
+        r.style.transform = "translateY(8px)";
+        setTimeout(() => {
+          r.textContent = words[++ri % words.length];
+          r.style.opacity = 1;
+          r.style.transform = "none";
+        }, 300);
+      }, 2600);
 
-<!-- BRANCHES -->
-<section id="branches" class="py-28 bg-white">
- <div class="max-w-7xl mx-auto px-4 lg:px-8">
-  <div class="max-w-2xl rv"><span class="text-acc font-bold text-xs tracking-[.3em]">JOIN WITH US</span><h2 class="text-4xl md:text-6xl font-extrabold mt-3 leading-[1.05]">Find a campus <span class="text-acc">near you.</span></h2></div>
-  <div id="bg" class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
- </div>
-</section>
+      /* pointer effects */
+      if (fine) {
+        addEventListener("mousemove", (e) => {
+          const g = $("#cg");
+          g.style.left = e.clientX + "px";
+          g.style.top = e.clientY + "px";
+        });
+        document.addEventListener("mousemove", (e) => {
+          const s = e.target.closest && e.target.closest(".spot");
+          if (s) {
+            const r = s.getBoundingClientRect();
+            s.style.setProperty("--mx", e.clientX - r.left + "px");
+            s.style.setProperty("--my", e.clientY - r.top + "px");
+          }
+        });
+        $$(".mg").forEach((m) => {
+          m.addEventListener("mousemove", (e) => {
+            const r = m.getBoundingClientRect();
+            m.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.2}px,${(e.clientY - r.top - r.height / 2) * 0.3}px)`;
+          });
+          m.addEventListener("mouseleave", () => (m.style.transform = ""));
+        });
+        const hv = $("#hv");
+        $("#home").addEventListener("mousemove", (e) => {
+          const x = e.clientX / innerWidth - 0.5,
+            y = e.clientY / innerHeight - 0.5;
+          $$("[data-p]").forEach(
+            (el) =>
+              (el.style.translate = `${x * el.dataset.p}px ${y * el.dataset.p}px`),
+          );
+        });
+      }
 
-<!-- ENROLL / CONTACT -->
-<section id="enroll" class="py-28 bg-night text-white relative overflow-hidden grain">
- <div class="au w-[28rem] h-[28rem] bg-acc/50 -left-32 top-10"></div><div class="au w-80 h-80 bg-orange-500/30 right-0 bottom-0" style="animation-delay:-6s"></div>
- <div class="relative max-w-3xl mx-auto px-4 lg:px-8">
-  <div class="text-center rv"><span class="text-yellow-300 font-bold text-xs tracking-[.3em]">GET STARTED</span><h2 class="text-4xl md:text-6xl font-extrabold mt-3">Your seat is waiting.</h2></div>
-  <div class="mt-8 glass rounded-full p-1.5 flex rv" id="ft">
-   <button data-f="reg" class="ftb w-1/2 py-3 rounded-full text-sm font-bold bg-yellow-400 text-night transition">Register for Next Intake</button>
-   <button data-f="con" class="ftb w-1/2 py-3 rounded-full text-sm font-bold transition">Contact Us</button>
-  </div>
-  <div class="mt-6 glass rounded-[2rem] p-6 md:p-10 rv">
-   <div id="ok" class="hidden text-center py-8"><div class="w-16 h-16 mx-auto rounded-full bg-emerald-500 flex items-center justify-center text-3xl">&#10003;</div><h3 class="mt-4 text-2xl font-bold">Submitted successfully!</h3><p id="okm" class="text-sm text-indigo-200 mt-1"></p><button onclick="showForm()" class="mt-5 px-6 py-2.5 rounded-full bg-yellow-400 text-night text-sm font-bold">Send another</button></div>
-   <form id="reg" novalidate class="grid md:grid-cols-2 gap-5">
-    <div><input class="inp" name="Name" data-v="req" placeholder="Full name"><div class="em"></div></div>
-    <div><input class="inp" name="Phone" data-v="phone" type="tel" placeholder="Contact number (077 123 4567)"><div class="em"></div></div>
-    <div><select class="inp" name="Gender" data-v="req"><option value="">Gender</option><option>Male</option><option>Female</option><option>Other</option></select><div class="em"></div></div>
-    <div><select class="inp" name="Location" data-v="req"><option value="">YEA location</option><option>Wasity Higher Institute, Kiribathgoda</option><option>Colombo 03</option><option>Kandy</option><option>Galle</option></select><div class="em"></div></div>
-    <div><input class="inp" name="City" data-v="req" placeholder="Nearest city"><div class="em"></div></div>
-    <div><select class="inp" id="ps" name="Program" data-v="req"><option value="">Select program</option></select><div class="em"></div></div>
-    <button class="btn md:col-span-2 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-night font-extrabold tracking-wider shadow-xl shadow-orange-500/30">SUBMIT REGISTRATION</button>
-   </form>
-   <form id="con" novalidate class="hidden grid gap-5">
-    <div class="grid md:grid-cols-2 gap-5"><div><input class="inp" name="Name" data-v="req" placeholder="Your name"><div class="em"></div></div><div><input class="inp" name="Phone" data-v="phone" type="tel" placeholder="Contact number"><div class="em"></div></div></div>
-    <div><input class="inp" name="Title" data-v="req" placeholder="Inquiry title"><div class="em"></div></div>
-    <div><textarea class="inp" rows="4" name="Message" data-v="msg" placeholder="Briefly tell us what you want to know"></textarea><div class="em"></div></div>
-    <button class="btn py-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-night font-extrabold tracking-wider shadow-xl shadow-orange-500/30">SEND INQUIRY</button>
-   </form>
-  </div>
- </div>
-</section>
+      /* gallery */
+      $$(".gtb").forEach(
+        (b) =>
+          (b.onclick = () => {
+            $$(".gtb").forEach(
+              (x) =>
+                (x.className =
+                  "gtb px-6 py-2.5 rounded-full text-sm font-bold text-slate-600 transition"),
+            );
+            b.className =
+              "gtb px-6 py-2.5 rounded-full text-sm font-bold bg-deep text-white transition";
+            $("#batches").classList.toggle("hidden", b.dataset.t !== "batches");
+            $("#albums").classList.toggle("hidden", b.dataset.t !== "albums");
+          }),
+      );
+      let ci = 0,
+        tm;
+      const go = (i) => {
+        ci = (i + S.length) % S.length;
+        $("#st").style.transform = `translateX(-${ci * 100}%)`;
+        $$(".dot").forEach(
+          (d, k) => (d.style.width = k === ci ? "1.75rem" : ".5rem"),
+        );
+        clearInterval(tm);
+        tm = setInterval(() => go(ci + 1), 5000);
+      };
+      $("#sn").onclick = () => go(ci + 1);
+      $("#sp").onclick = () => go(ci - 1);
+      go(0);
 
-<!-- FOOTER -->
-<footer class="bg-[#050820] text-white pt-16">
- <div class="max-w-7xl mx-auto px-4 lg:px-8 grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12">
-  <div><span class="disp flex text-3xl font-extrabold tracking-wider"><span style="color:#F57C00">Y</span><span style="color:#4FA3FF">O</span><span style="color:#4ADE80">U</span><span style="color:#FBC02D">N</span><span style="color:#29B6F6">G</span></span><span class="block text-[10px] font-bold tracking-[.3em] text-indigo-300 mt-1">ENGLISH ACADEMY</span><p class="mt-4 text-sm font-semibold text-slate-200">Young English Academy - With Gayan Vimukthi</p><p class="mt-2 text-xs text-slate-400">Empowering Sri Lanka's youth with fluent English and global confidence.</p></div>
-  <div><h4 class="disp font-bold text-yellow-300 mb-4">Quick Links</h4><ul class="space-y-2 text-sm text-slate-300"><li><a class="hover:text-white" href="#home">Home</a></li><li><a class="hover:text-white" href="#programs">Programs</a></li><li><a class="hover:text-white" href="#about">About</a></li><li><a class="hover:text-white" href="#gallery">Gallery</a></li><li><a class="hover:text-white" href="#enroll">Enroll</a></li></ul></div>
-  <div><h4 class="disp font-bold text-yellow-300 mb-4">Contact</h4><ul class="space-y-2 text-sm text-slate-300"><li>+94 77 123 4567</li><li>+94 11 291 8888</li><li>info@youngenglishacademy.lk</li><li>Daily: 8:30 AM - 5:30 PM</li></ul></div>
-  <div><h4 class="disp font-bold text-yellow-300 mb-4">Branches</h4><ul id="fb" class="space-y-2 text-sm text-slate-300"></ul></div>
- </div>
- <div class="border-t border-white/10 py-5 text-center text-xs text-slate-400">&copy; 2026 Young English Academy. All rights reserved. <span class="text-yellow-300 font-mono ml-2">#YouOwnUnlimitedNewGrowth</span></div>
-</footer>
+      /* modals */
+      const open = (t, s, h) => {
+        $("#mt").textContent = t;
+        $("#ms").textContent = s;
+        $("#mb2").innerHTML = h;
+        $("#md").classList.remove("hidden");
+      };
+      function closeM() {
+        $("#md").classList.add("hidden");
+        $("#mb2").innerHTML = "";
+      }
+      addEventListener("keydown", (e) => e.key === "Escape" && closeM());
+      const albumM = (i) =>
+        open(
+          A[i][0],
+          A[i][1].length + " photos",
+          `<div class="grid sm:grid-cols-2 gap-3">${A[i][1].map((x) => `<img src="${img(x)}" alt="" class="w-full h-52 object-cover rounded-2xl">`).join("")}</div>`,
+        );
+      const mapM = (i) =>
+        open(
+          B[i][0],
+          B[i][1],
+          `<iframe title="Map" class="w-full h-72 rounded-2xl border-0" loading="lazy" src="https://www.google.com/maps?q=${encodeURIComponent(B[i][0] + " " + B[i][1])}&output=embed"></iframe><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(B[i][0] + " " + B[i][1])}" class="inline-block mt-4 px-6 py-2.5 rounded-full bg-deep text-white text-xs font-bold">OPEN IN GOOGLE MAPS</a>`,
+        );
 
-<!-- MODAL -->
-<div id="md" class="hidden fixed inset-0 z-[80] bg-black/70 backdrop-blur-md flex items-center justify-center p-4" onclick="if(event.target===this)closeM()">
- <div class="bg-white rounded-[2rem] max-w-3xl w-full p-6 max-h-[90vh] overflow-y-auto">
-  <div class="flex justify-between items-start mb-4"><div><h3 id="mt" class="text-xl font-bold"></h3><p id="ms" class="text-xs text-slate-500"></p></div><button onclick="closeM()" aria-label="Close" class="text-3xl leading-none px-2">&times;</button></div><div id="mb2"></div>
- </div>
-</div>
-
-<script>
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const img=(id,w=800)=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
-const fine=matchMedia('(hover:hover)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches;
-document.addEventListener('error',e=>{if(e.target.tagName==='IMG'&&!e.target.dataset.f){e.target.dataset.f=1;e.target.src='https://placehold.co/800x600/283593/FFFFFF?text=YEA'}},true);
-
-const ic={mic:'M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zM19 10v1a7 7 0 0 1-14 0v-1M12 18v4',target:'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',bag:'M3 7h18v13H3zM8 7V4h8v3',book:'M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4zM4 16a4 4 0 0 1 4-4h12',cap:'M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5',pen:'M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z'};
-const P=[['mic','Spoken English Mastery','Beat hesitation with daily fluency drills, pronunciation coaching and public speaking practice.','4 Months','#F57C00'],['target','IELTS Academic & General','Mock tests, essay feedback and speaking interviews aimed at Band 7.0+.','3 Months','#1976D2'],['bag','Business Communication','Professional emails, reports, interviews and presentation skills for the workplace.','2 Months','#388E3C'],['book','Grammar & Vocabulary Booster','Clear up tenses, prepositions and sentence structure with guided practice.','3 Months','#3F51B5'],['cap','Young Learners Diploma','Confidence-building diploma for school leavers: speeches, stories and group discussion.','4 Months','#E0A800'],['pen','Creative & Academic Writing','Essays, reports and creative writing with one-to-one feedback from mentors.','2 Months','#0288D1']];
-const B=[['Wasity Higher Institute, Kiribathgoda','Wasity Higher Institute, Kandy Road, Kiribathgoda','+94 11 291 8888','1562774053-701939374585'],['Colombo Branch','No. 45, Galle Road, Colombo 03','+94 11 432 1100','1541829070764-84a7d30dd3f3'],['Kandy Branch','No. 78, Peradeniya Road, Kandy','+94 81 223 9900','1523050854058-8df90110c9f1'],['Galle Branch','No. 22, Main Street, Galle','+94 91 224 5500','1592285853145-707163f4a478']];
-const S=[['1524178232363-1fb2b075b655','Batch 42 - Spoken English Graduation'],['1531482615713-2afd69097998','IELTS Speaking Workshop'],['1511632765486-a01980e01a18','Annual Youth English Camp']];
-const A=[['Annual Awards Night 2025',['1511578314322-379afb476865','1475721027785-f74eccf877e2','1523580494863-6f3031224c94']],['Speech & Debate Contest',['1475721027785-f74eccf877e2','1524178232363-1fb2b075b655']],['Outdoor Learning Camp',['1529156069898-49953e39b3ac','1523240795612-9a054b0db644']]];
-
-$('#pg').innerHTML=P.map((p,i)=>`<div class="spot rv rounded-[2rem] p-7 bg-soft border border-slate-200/70 flex flex-col" style="--d:${i*90}ms"><div class="w-14 h-14 rounded-2xl flex items-center justify-center" style="background:${p[4]}22"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="${p[4]}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${ic[p[0]]}"/></svg></div><span class="text-[11px] font-bold text-acc mt-5 tracking-widest">${p[3].toUpperCase()}</span><h3 class="text-2xl font-extrabold mt-1 text-deep leading-tight">${p[1]}</h3><p class="text-sm text-slate-600 mt-3 flex-1">${p[2]}</p><button onclick="pick('${p[1].replace("'","")}')" class="mt-6 text-left text-sm font-bold text-deep group">Enroll in program <span class="inline-block transition group-hover:translate-x-1.5">&rarr;</span></button></div>`).join('');
-$('#ps').innerHTML+=P.map(p=>`<option>${p[1]}</option>`).join('');
-$('#bg').innerHTML=B.map((b,i)=>`<div class="spot rv rounded-[2rem] bg-soft overflow-hidden flex flex-col border border-slate-200/70" style="--d:${i*90}ms"><img src="${img(b[3],600)}" alt="${b[0]}" class="h-36 w-full object-cover"><div class="p-5 flex-1 flex flex-col"><h3 class="font-extrabold text-lg leading-tight">${b[0]}</h3><p class="text-xs text-slate-600 mt-2">${b[1]}</p><p class="text-xs font-semibold text-slate-700 mt-1">${b[2]}</p><button onclick="mapM(${i})" class="mt-auto pt-4 text-left text-xs font-bold text-acc">View Google Map Location &rarr;</button></div></div>`).join('');
-$('#fb').innerHTML=B.map(b=>`<li>${b[0]}</li>`).join('');
-$('#st').innerHTML=S.map(s=>`<div class="min-w-full h-full relative"><img src="${img(s[0],1200)}" alt="${s[1]}" class="w-full h-full object-cover opacity-90"><div class="absolute bottom-0 inset-x-0 p-6 pb-12 bg-gradient-to-t from-black/85 to-transparent text-white disp font-extrabold text-xl md:text-3xl">${s[1]}</div></div>`).join('');
-$('#sd').innerHTML=S.map((_,i)=>`<button aria-label="Slide ${i+1}" onclick="go(${i})" class="dot h-2 rounded-full bg-white transition-all"></button>`).join('');
-$('#albums').innerHTML=A.map((a,i)=>`<button onclick="albumM(${i})" class="spot text-left bg-white rounded-[2rem] shadow-md"><img src="${img(a[1][0],600)}" alt="${a[0]}" class="h-48 w-full object-cover"><div class="p-5"><div class="font-extrabold">${a[0]}</div><div class="text-xs text-slate-500">${a[1].length} photos &middot; click to open</div></div></button>`).join('');
-$('#mq').innerHTML=Array(2).fill(['Spoken English','IELTS Prep','Business Communication','Grammar','Young Learners','Writing'].map(t=>`<span class="mx-6">${t}</span><span>&#10022;</span>`).join('')).join('');
-
-/* split headline */
-let wi=0;const h1=$('#h1');h1.childNodes.forEach(n=>{if(n.nodeType===3){const f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(t=>{if(!t.trim())return f.append(' ');const s=document.createElement('span');s.className='w';s.style.setProperty('--i',wi++);s.textContent=t;f.append(s)});n.replaceWith(f)}else{n.classList.add('w');n.style.setProperty('--i',wi++)}});
-
-/* chrome */
-addEventListener('scroll',()=>{$('#bar').style.width=scrollY/(document.documentElement.scrollHeight-innerHeight)*100+'%'},{passive:true});
-$('#mb').onclick=()=>$('#mm').classList.toggle('hidden');$$('#mm a').forEach(a=>a.onclick=()=>$('#mm').classList.add('hidden'));
-const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('#nav a').forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});$$('section[id]').forEach(s=>spy.observe(s));
-const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}}),{threshold:.12});$$('.rv').forEach(el=>rio.observe(el));
-const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,n=+el.dataset.c,t0=performance.now();const f=t=>{const p=Math.min((t-t0)/1800,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString();p<1&&requestAnimationFrame(f)};requestAnimationFrame(f);cio.unobserve(el)}),{threshold:.6});$$('[data-c]').forEach(el=>cio.observe(el));
-const words=['Spoken English','IELTS Success','Business Writing','Public Speaking','Grammar'];let ri=0;setInterval(()=>{const r=$('#rot');r.style.opacity=0;r.style.transform='translateY(8px)';setTimeout(()=>{r.textContent=words[++ri%words.length];r.style.opacity=1;r.style.transform='none'},300)},2600);
-
-/* pointer effects */
-if(fine){
- addEventListener('mousemove',e=>{const g=$('#cg');g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
- document.addEventListener('mousemove',e=>{const s=e.target.closest&&e.target.closest('.spot');if(s){const r=s.getBoundingClientRect();s.style.setProperty('--mx',e.clientX-r.left+'px');s.style.setProperty('--my',e.clientY-r.top+'px')}});
- $$('.mg').forEach(m=>{m.addEventListener('mousemove',e=>{const r=m.getBoundingClientRect();m.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.2}px,${(e.clientY-r.top-r.height/2)*.3}px)`});m.addEventListener('mouseleave',()=>m.style.transform='')});
- const hv=$('#hv');$('#home').addEventListener('mousemove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;$$('[data-p]').forEach(el=>el.style.translate=`${x*el.dataset.p}px ${y*el.dataset.p}px`)});
-}
-
-/* gallery */
-$$('.gtb').forEach(b=>b.onclick=()=>{$$('.gtb').forEach(x=>x.className='gtb px-6 py-2.5 rounded-full text-sm font-bold text-slate-600 transition');b.className='gtb px-6 py-2.5 rounded-full text-sm font-bold bg-deep text-white transition';$('#batches').classList.toggle('hidden',b.dataset.t!=='batches');$('#albums').classList.toggle('hidden',b.dataset.t!=='albums')});
-let ci=0,tm;const go=i=>{ci=(i+S.length)%S.length;$('#st').style.transform=`translateX(-${ci*100}%)`;$$('.dot').forEach((d,k)=>d.style.width=k===ci?'1.75rem':'.5rem');clearInterval(tm);tm=setInterval(()=>go(ci+1),5000)};
-$('#sn').onclick=()=>go(ci+1);$('#sp').onclick=()=>go(ci-1);go(0);
-
-/* modals */
-const open=(t,s,h)=>{$('#mt').textContent=t;$('#ms').textContent=s;$('#mb2').innerHTML=h;$('#md').classList.remove('hidden')};
-function closeM(){$('#md').classList.add('hidden');$('#mb2').innerHTML=''}addEventListener('keydown',e=>e.key==='Escape'&&closeM());
-const albumM=i=>open(A[i][0],A[i][1].length+' photos',`<div class="grid sm:grid-cols-2 gap-3">${A[i][1].map(x=>`<img src="${img(x)}" alt="" class="w-full h-52 object-cover rounded-2xl">`).join('')}</div>`);
-const mapM=i=>open(B[i][0],B[i][1],`<iframe title="Map" class="w-full h-72 rounded-2xl border-0" loading="lazy" src="https://www.google.com/maps?q=${encodeURIComponent(B[i][0]+' '+B[i][1])}&output=embed"></iframe><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(B[i][0]+' '+B[i][1])}" class="inline-block mt-4 px-6 py-2.5 rounded-full bg-deep text-white text-xs font-bold">OPEN IN GOOGLE MAPS</a>`);
-
-/* forms */
-const rules={req:v=>v.trim()?'':'This field is required.',phone:v=>/^(?:\+94|0)?7\d{8}$|^(?:\+94|0)\d{9}$/.test(v.replace(/[\s-]/g,''))?'':'Enter a valid Sri Lankan number.',msg:v=>v.trim().length>=10?'':'Please write at least 10 characters.'};
-function tab(f){$$('.ftb').forEach(b=>b.className='ftb w-1/2 py-3 rounded-full text-sm font-bold transition '+(b.dataset.f===f?'bg-yellow-400 text-night':''));$('#reg').classList.toggle('hidden',f!=='reg');$('#con').classList.toggle('hidden',f!=='con');$('#ok').classList.add('hidden')}
-function showForm(){$$('.ftb').forEach(b=>{if(b.className.includes('bg-yellow-400'))tab(b.dataset.f)})}
-$$('.ftb').forEach(b=>b.onclick=()=>tab(b.dataset.f));
-function pick(n){tab('reg');$('#ps').value=n;$('#enroll').scrollIntoView({behavior:'smooth'})}
-function chk(el){const m=rules[el.dataset.v](el.value);el.classList.toggle('err',!!m);el.nextElementSibling.textContent=m;return!m}
-$$('form [data-v]').forEach(el=>{el.addEventListener('blur',()=>chk(el));el.addEventListener('input',()=>el.classList.contains('err')&&chk(el))});
-$$('form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const bad=[...f.querySelectorAll('[data-v]')].filter(el=>!chk(el));if(bad.length)return bad[0].focus();
- /* TODO: send Object.fromEntries(new FormData(f)) to your backend / Google Sheet / WhatsApp API */
- f.classList.add('hidden');$('#okm').textContent=f.id==='reg'?'Your seat request is recorded. Our coordinator will call you to confirm your schedule.':'Thanks for reaching out. The YEA team will contact you shortly.';$('#ok').classList.remove('hidden');f.reset()}));
-</script>
-</body>
+      /* forms */
+      const rules = {
+        req: (v) => (v.trim() ? "" : "This field is required."),
+        phone: (v) =>
+          /^(?:\+94|0)?7\d{8}$|^(?:\+94|0)\d{9}$/.test(v.replace(/[\s-]/g, ""))
+            ? ""
+            : "Enter a valid Sri Lankan number.",
+        msg: (v) =>
+          v.trim().length >= 10 ? "" : "Please write at least 10 characters.",
+      };
+      function tab(f) {
+        $$(".ftb").forEach(
+          (b) =>
+            (b.className =
+              "ftb w-1/2 py-3 rounded-full text-sm font-bold transition " +
+              (b.dataset.f === f ? "bg-yellow-400 text-night" : "")),
+        );
+        $("#reg").classList.toggle("hidden", f !== "reg");
+        $("#con").classList.toggle("hidden", f !== "con");
+        $("#ok").classList.add("hidden");
+      }
+      function showForm() {
+        $$(".ftb").forEach((b) => {
+          if (b.className.includes("bg-yellow-400")) tab(b.dataset.f);
+        });
+      }
+      $$(".ftb").forEach((b) => (b.onclick = () => tab(b.dataset.f)));
+      function pick(n) {
+        tab("reg");
+        $("#ps").value = n;
+        $("#enroll").scrollIntoView({ behavior: "smooth" });
+      }
+      function chk(el) {
+        const m = rules[el.dataset.v](el.value);
+        el.classList.toggle("err", !!m);
+        el.nextElementSibling.textContent = m;
+        return !m;
+      }
+      $$("form [data-v]").forEach((el) => {
+        el.addEventListener("blur", () => chk(el));
+        el.addEventListener(
+          "input",
+          () => el.classList.contains("err") && chk(el),
+        );
+      });
+      $$("form").forEach((f) =>
+        f.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const bad = [...f.querySelectorAll("[data-v]")].filter(
+            (el) => !chk(el),
+          );
+          if (bad.length) return bad[0].focus();
+          /* TODO: send Object.fromEntries(new FormData(f)) to your backend / Google Sheet / WhatsApp API */
+          f.classList.add("hidden");
+          $("#okm").textContent =
+            f.id === "reg"
+              ? "Your seat request is recorded. Our coordinator will call you to confirm your schedule."
+              : "Thanks for reaching out. The YEA team will contact you shortly.";
+          $("#ok").classList.remove("hidden");
+          f.reset();
+        }),
+      );
+    </script>
+  </body>
 </html>
